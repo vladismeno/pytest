@@ -5,7 +5,7 @@ class TestFirstAPI:
     def test_hello_call(self):
         url = "https://playground.learnqa.ru/api/hello"
         name = 'Vitalii'
-        data = {'nam2e': name}
+        data = {'name': name}
 
         response = requests.get(url, params=data)
         print(response.json())
