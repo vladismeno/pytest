@@ -1,5 +1,6 @@
 import json.decoder
 
+from datetime import datetime
 from requests import Response
 
 
@@ -21,3 +22,20 @@ class BaseCase:
         assert key in response_as_dict, f"Response JSON doesn't have a key '{key}'"
 
         return response_as_dict[key]
+
+    def generate_email(self):
+        base_part = "learnqa"
+        domain = "example.com"
+        random_part = datetime.now().strftime("%m%d%Y%H%M%S")
+        return f"{base_part}{random_part}@{domain}"
+
+    def prepare_registration_data(self, email=None):
+        if email is None:
+            email = self.generate_email()
+        return {
+            'password': '123',
+            'username': 'learnqa',
+            'firstName': 'learnqa',
+            'lastName': 'learnqa',
+            'email': email
+        }
