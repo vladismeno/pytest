@@ -3,7 +3,6 @@ from lib.assertions import Assertions
 from lib.my_requests import MyRequests
 
 
-
 class TestUserEdit(BaseCase):
     def test_edit_just_created_user(self):
         # REGISTER
